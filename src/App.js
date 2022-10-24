@@ -1,4 +1,4 @@
-import MovieApi from "./api/movieApi";
+
 import React from 'react';
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
           <p>Hello world</p>
       </header>
 
-        <MovieApi />
+
 
     </div>
 
