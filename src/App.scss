@@ -1,0 +1,38 @@
+@import './variables.scss';
+
+* {
+  background-color: $black;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  color: $purple;
+  cursor: pointer;
+  font-size: 1.8em;
+  margin-right: 5px;
+  text-decoration: none;
+}
+
+.navbar {
+  display: flex;
+  height: 68px;
+  justify-content: space-around;
+  align-content: center;
+}
+
+.navlink {
+  display: flex;
+  align-items: center;
+  color: $white;
+  height: 100%;
+  font-size: 1.2rem;
+}
+
+.account {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: 1.8rem;
+  color: $white;
+}
