@@ -2,8 +2,13 @@ import React, { useEffect } from "react";
 import axios from 'axios';
 
 
+export default axios.create({
+    baseURL: "https://api.themoviedb.org/3",
+});
 
-const MovieApi = () => {
+
+
+/*const MovieApi = () => {
     const url =
         "https://api.themoviedb.org/3/movie/popular?api_key=19dedc791dc255982eaf84be8a93012a&language=en-US&page=1";
     useEffect(() => {
@@ -18,4 +23,4 @@ const MovieApi = () => {
     );
 
 };
-export default MovieApi;
+export default MovieApi; */
