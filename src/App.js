@@ -1,6 +1,8 @@
 import React from 'react';
 import './App.scss';
 import Navbar from './components/Navbar/Navbar';
+import MovieList from './components/MovieList/MovieList';
+import Home from "./components/Home/Home";
 
 
 function App() {
@@ -12,12 +14,8 @@ const navLinks = [
 
   return (
     <div className="App">
-
-
-
-
-
       <Navbar links={navLinks} brand="Watflix" />
+     <Home />
 
     </div>
 
