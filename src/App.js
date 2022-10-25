@@ -1,5 +1,4 @@
-
-import logo from './logo.svg';
+import React from 'react';
 import './App.scss';
 import Navbar from './components/Navbar/Navbar';
 
@@ -13,6 +12,10 @@ const navLinks = [
 
   return (
     <div className="App">
+
+
+
+
 
       <Navbar links={navLinks} brand="Watflix" />
 
