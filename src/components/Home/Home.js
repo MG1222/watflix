@@ -17,7 +17,7 @@ const Home = () => {
             const response = await movieApi.get(`/movie/upcoming?api_key=${ API_KEY }`);
             dispatch(addMovies(response.data.results));
         }
-        fetchMovies();
+        fetchMovies().then(r => console.log(r));
     } , [dispatch]);
 
 
