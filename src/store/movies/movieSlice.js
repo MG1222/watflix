@@ -1,24 +1,31 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import movieApi from "../../apiConf/movieApi";
-import { API_KEY } from "../../apiConf/movieApiKey";
-
-export const fetchAsyncMovies = createAsyncThunk(
-    "store/fetchAsyncMovies",
-    async () => {
-        return await movieApi.get(`/movie/upcoming?api_key=${ API_KEY }`);
-    }
-);
-
-export const fetchAsyncShows = createAsyncThunk(
-    "store/fetchAsyncShows",
-    async () => {
-        return await movieApi.get(`/tv/popular?api_key=${ API_KEY }`);
-    }
-);
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     movies: {},
-    shows: {},
-}
+};
+
+const movieSlice = createSlice({
+    name: 'movies',
+    initialState,
+    reducers: {
+        addMovies: ( state, action ) => {
+            state.movies = action.payload;
+        },
+    },
+});
 
 
+export const { addMovies } = movieSlice.actions;
+export const getAllMovies = (state) => state.movies.movies;
+export default movieSlice.reducer;
+
+
+
+
+const movieSlice = createSlice({
+    name: 'movie',
+    initialState,
+    reducers: {
+    },
+  })
+export default movieSlice.reducer;

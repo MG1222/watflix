@@ -43,6 +43,7 @@
 
 .movie-container{
   color: $white;
+  opacity: 0.7;
   h2 {
     color: $white;
   }
@@ -54,6 +55,7 @@
     .movie-img {
       height: 150px;
       width: 300px;
+      opacity: initial;
     }
     .movie-description-short {
       background-color: transparent;
@@ -69,6 +71,45 @@
   }
 }
 
-
+.home {
+  display: grid;
+  grid-template-rows: 30% 10% 10% 10% 10% 10% 10% 10%;
+}
+.home-header {
+  position: relative;
+  text-align:center;
+  img {
+    width: 100%;
+  }
+  h1, p {
+    color: $white;
+    position: absolute;
+    width: 30%;
+    background-color: transparent;
+    font-family: cursive;
+  }
+  .header-description {
+    top: 30%;
+    left: 5%;
+    font-size: 1.5em;
+  }
+  h1 {
+    top: 10%;
+    left: 5%;
+    font-size: 4em;
+  }
+  .header-cast {
+    top: 20%;
+    left: 60%;
+    font-size: 2em;
+    font-weight: 600;
+    li {
+      list-style-type:none;
+      background-color: transparent;
+      padding: 10px;
+      font-size: 0.8em;
+    }
+  }
+}
 
 
