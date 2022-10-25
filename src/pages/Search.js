@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import Movie from "./Movie";
-import {fakeData} from "./fakeData";
+import Movie from "../components/Movie";
+import {fakeData} from "../fakeData";
 
 const Search = () => {
     const [inputValue, setInputValue] = useState('');

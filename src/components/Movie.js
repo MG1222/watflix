@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {fakeData} from "./fakeData";
+import {fakeData} from "../fakeData";
 
 const Movie = (movie_id) => {
 
