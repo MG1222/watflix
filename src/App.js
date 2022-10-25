@@ -1,7 +1,14 @@
 import React from 'react';
-import './App.scss';
-import Navbar from './components/Navbar/Navbar';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
+import './App.scss';
+
+import Navbar from './components/Navbar/Navbar';
+import Home from './components/home';
+import Search from './components/search';
+import Oeuvres from './components/oeuvres';
+import Details from './components/details';
+import Favoris from './components/favoris';
 
 function App() {
 const navLinks = [
@@ -12,15 +19,21 @@ const navLinks = [
 
   return (
     <div className="App">
-
-
-
-
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home/>}/>
+          <Route path="/search" element={<Search/>}/>
+          <Route path="/oeuvres" element={<Oeuvres/>}/>
+          <Route path="/details" element={<Details/>}/>
+          <Route path="/favoris" element={<Favoris/>}/>
+        </Routes>
+      </Router>
 
       <Navbar links={navLinks} brand="Watflix" />
 
     </div>
 
+    
   );
 }
 
