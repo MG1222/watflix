@@ -4,34 +4,71 @@
   background-color: $black;
 }
 
-.logo {
-  display: flex;
-  align-items: center;
-  color: $purple;
-  cursor: pointer;
-  font-size: 1.8em;
-  margin-right: 5px;
-  text-decoration: none;
-}
+
 
 .navbar {
   display: flex;
   height: 68px;
-  justify-content: space-around;
+  justify-content: space-between;
   align-content: center;
+  color: $white;
+  padding: 10px 20px 10px 20px;
+  .logo {
+    display: flex;
+    align-items: center;
+    color: $purple;
+    cursor: pointer;
+    font-size: 1.8em;
+    margin-right: 5px;
+    text-decoration: none;
+    color: $purple;
+  }
+  .navlink {
+    display: flex;
+    align-items: center;
+    color: $white;
+    height: 100%;
+    font-size: 1.2rem;
+  }
+  
+  .account {
+    display: flex;
+    justify-content: center;
+    height: 1.8rem;
+    color: $white;
+  }
 }
 
-.navlink {
-  display: flex;
-  align-items: center;
+
+
+.movie-container{
   color: $white;
-  height: 100%;
-  font-size: 1.2rem;
+  h2 {
+    color: $white;
+  }
+  .movie {
+    display: inline-block;
+    padding: 5px;
+    position: relative;
+    text-align: center;
+    .movie-img {
+      height: 150px;
+      width: 300px;
+    }
+    .movie-description-short {
+      background-color: transparent;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+        h3, p {
+          background-color: transparent;
+          color: $white;
+        }
+    }
+  }
 }
 
-.account {
-  display: flex;
-  justify-content: center;
-  height: 1.8rem;
-  color: $white;
-}
+
+
+
