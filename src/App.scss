@@ -9,9 +9,10 @@
 .navbar {
   display: flex;
   height: 68px;
-  justify-content: space-around;
+  justify-content: space-between;
   align-content: center;
   color: $white;
+  padding: 10px 20px 10px 20px;
   .logo {
     display: flex;
     align-items: center;
