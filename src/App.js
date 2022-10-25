@@ -2,8 +2,10 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import './App.scss';
-
 import Navbar from './components/Navbar/Navbar';
+import MovieList from './components/MovieList/MovieList';
+import Home from "./components/Home/Home";
+
 import Home from './components/home';
 import Search from './components/search';
 import Oeuvres from './components/oeuvres';
@@ -30,10 +32,11 @@ const navLinks = [
       </Router>
 
       <Navbar links={navLinks} brand="Watflix" />
+     <Home />
 
     </div>
 
-    
+
   );
 }
 
