@@ -7,7 +7,6 @@ import ListRow from './components/List/ListRow';
 import MovieList from './components/MovieList/MovieList';
 import Home from "./components/Home/Home";
 
-import Home from './components/home';
 import Search from './components/search';
 import Oeuvres from './components/oeuvres';
 import Details from './components/details';
