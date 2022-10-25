@@ -21,4 +21,10 @@ const initialState = {
     shows: {},
 }
 
-
+const movieSlice = createSlice({
+    name: 'movie',
+    initialState,
+    reducers: {
+    },
+  })
+export default movieSlice.reducer;
