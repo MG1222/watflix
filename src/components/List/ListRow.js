@@ -1,4 +1,5 @@
 import Movie from './Movie.js';
+import Filter from "../filter.js";
 
 export default function ListRow(props) {
     const { movies, category } = props;
@@ -15,6 +16,7 @@ export default function ListRow(props) {
                         key={`movie${key}`}
                     />
                 )}
+                <Filter/>
             </div>
     )
 }
