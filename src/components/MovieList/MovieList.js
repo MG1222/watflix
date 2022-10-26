@@ -7,8 +7,9 @@ const MovieList = () => {
     console.log(movies);
     return (
         <div>
-            <h1>MovieList</h1>
+            <h1>Movie List</h1>
         </div>
     );
-}
+};
+
 export default MovieList;

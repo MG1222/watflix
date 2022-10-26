@@ -9,7 +9,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Search from './components/search';
 import Oeuvres from './components/oeuvres';
 import Details from './components/details';
-import Favoris from './components/favoris';
+import Favoris from './components/Favoris/Favoris';
 
 function App() {
 
@@ -19,7 +19,6 @@ function App() {
     {to:"/details", name: "Détails"},
     {to:"/favoris", name: "Favoris"},
   ];
-
 
   return (
     <div className="App">
