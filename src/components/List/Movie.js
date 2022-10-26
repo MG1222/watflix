@@ -1,27 +1,35 @@
 import { useState } from 'react';
 
+
 export default function Movie(props) {
-    const { title, descriptionShort, image } = props;
-    const [showDescription, setShowDescription] = useState(false);
+
+    const { title, overview, image} = props;
+    const [showOverview, setShowOverview] = useState(false);
 
     return (
-        <div 
-            className="movie"
-            onMouseEnter={(event) => setShowDescription(true)}
-            onMouseLeave={(event) => setShowDescription(false)}
+        <div className="movie"
+            onMouseEnter={(event) => setShowOverview(true)}
+            onMouseLeave={(event) => setShowOverview(false)}
         >
-            <img src={image} className="movie-img"></img>
+            <img src={`https://image.tmdb.org/t/p/w780/${image}`} className="movie-img" alt="img movie"></img>
             {
-                showDescription ? 
+                showOverview ?
+
                     <div className='movie-description-short'>
-                            <h3>{title}</h3>
-                            <p>{descriptionShort}</p>
+                        <h3>{title}</h3>
+                        <p>{overview}</p>
+
                     </div>
-                :
+                    :
                     null
             }
-            
-            
+        )}
+
+
+
+
+
+
         </div>
     )
 }

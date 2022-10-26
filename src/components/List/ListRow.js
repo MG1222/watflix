@@ -1,23 +1,23 @@
 import Movie from './Movie.js';
 
 export default function ListRow(props) {
-    const { movies, category } = props;
+    const { movies } = props;
+
+
 
     return (
-            
-            <div className="list-row">
-                <h2>{category}</h2>
-                <div className='movie-container'>
-                    {movies.map( (movie, key) =>
-                        <Movie 
-                            title={movie.title}
-                            descriptionShort={movie.descriptionShort}
-                            image={movie.img}
-                            key={`movie${key}`}
-                            className="movie-home"
-                        />
-                    )}
-                </div>
+
+        <div className="list-row">
+            <div className='movie-container'>
+                {props.movies.map( (movie, key) =>
+                    <Movie
+                        title={movie.title}
+                        descriptionShort={movie.overview}
+                        image={movie.poster_path}
+                        key={`movie${key}`}
+                    />
+                )}
             </div>
+        </div>
     )
 }
