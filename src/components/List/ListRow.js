@@ -14,6 +14,7 @@ export default function ListRow(props) {
                             descriptionShort={movie.descriptionShort}
                             image={movie.img}
                             key={`movie${key}`}
+                            className="movie-home"
                         />
                     )}
                 </div>

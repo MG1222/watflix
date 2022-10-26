@@ -6,8 +6,6 @@ export default function Header(props) {
     } else {
         description = movie.description;
     }
-
-    console.log(movie.cast);
     return (
         <div className="home-header">
             <img src={movie.img}></img>

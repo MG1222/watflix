@@ -1,0 +1,23 @@
+@import './variables.scss';
+.list-row {
+    color: $white;
+    opacity: 0.9;
+    overflow:hidden;
+  }
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .movie-container::-webkit-scrollbar {
+    display:none;
+  }
+  .movie-container{
+    color: $white;
+    opacity: 0.9;
+    h2 {
+      color: $white;
+    }
+    overflow:auto;
+    white-space: nowrap;
+    
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    
+  }
