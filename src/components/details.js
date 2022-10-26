@@ -1,7 +1,6 @@
 import {useNavigate, useParams} from 'react-router-dom';
 import React, {useEffect, useState} from 'react';
 
-
 const fakeMovie = {
     "adult": false,
     "backdrop_path": "/fCayJrkfRaCRCTh8GqN30f8oyQF.jpg",
@@ -90,17 +89,20 @@ const fakeMovie = {
 
 function Details(){
     const navigate=useNavigate();
-    const {id} = useParams;
-    const movie = fakeMovie; // getMovie(id);
-    const baseURL = 'https://image.tmdb.org/t/p/w92';
+    // const {id} = useParams;
+    const movie = fakeMovie // getMovieID(id);
+    const baseURL = 'https://image.tmdb.org/t/p/w500';
     const [time, setTime] = useState({hours : undefined, minutes: undefined});
     const [year, setYear] = useState(undefined);
     const calcH = Math.round(movie.runtime/60);
     const calcM = movie.runtime - calcH*60;
 
+
+
     useEffect(() => {
         setTime(prevState =>  ({...prevState, hours: calcH, minutes: calcM}));
         setYear(movie.release_date.split('-').shift());
+
     }, [])
 
 
@@ -111,7 +113,7 @@ function Details(){
             <button onClick={()=>navigate("/oeuvres")}>Oeuvres</button>
             <button onClick={()=>navigate("/favoris")}>Favoris</button>
             <div>
-                <img src={`${baseURL}${movie.poster_path}`} alt='affiche du film'/>
+                <img src={`${baseURL}${movie.backdrop_path}`} alt='affiche du film'/>
                 <h1>{movie.title}</h1>
                 <p>{year}</p>
                 <ul>{movie.production_countries.map((e, i) => {
