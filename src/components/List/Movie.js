@@ -23,13 +23,6 @@ export default function Movie(props) {
                     :
                     null
             }
-        )}
-
-
-
-
-
-
         </div>
     )
 }
