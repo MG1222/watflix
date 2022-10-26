@@ -1,24 +1,20 @@
 import React, { useEffect } from "react";
-import movieApi from "../../apiConf/movieApi";
-import { API_KEY } from "../../apiConf/movieApiKey";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import MovieList from "../MovieList/MovieList";
-import {addMovies} from "../../store/movies/movieSlice";
+import {fetchAsyncMovies, fetchAsyncSeries} from "../../store/movies/movieSlice";
 import ListRow from '../List/ListRow';
 import Header from "./Header";
+import MovieList from "../MovieList/MovieList";
 
 const Home = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
     useEffect(() => {
-        const fetchMovies = async () => {
-            const response = await movieApi.get(`/movie/upcoming?api_key=${ API_KEY }`);
-            dispatch(addMovies(response.data.results));
-        }
-        fetchMovies().then(r => console.log(r));
-    } , [dispatch]);
+        dispatch(fetchAsyncMovies());
+        dispatch(fetchAsyncSeries());
+    }, [dispatch])
+
 
 
     const movies = [
@@ -91,6 +87,7 @@ const Home = () => {
             <ListRow category="Les meilleurs films" movies={movies}/>
             <ListRow category="Les meilleurs films" movies={movies}/>
             <ListRow category="Les meilleurs films" movies={movies}/>
+            <MovieList />
         </div>
     );
 };

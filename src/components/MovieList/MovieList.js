@@ -1,14 +1,15 @@
 import React from 'react';
 import { useSelector } from "react-redux";
-import { getAllMovies } from "../../store/movies/movieSlice";
+import {getAllMovies, getAllShows} from "../../store/movies/movieSlice";
 
 const MovieList = () => {
     const movies = useSelector(getAllMovies);
-    console.log(movies);
+    const s = useSelector(getAllShows);
     return (
         <div>
-            <h1>MovieList</h1>
+            <h1>Movie List</h1>
         </div>
     );
-}
+};
+
 export default MovieList;
