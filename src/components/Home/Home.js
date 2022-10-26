@@ -1,10 +1,12 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import {fetchAsyncMovies, fetchAsyncSeries} from "../../store/movies/movieSlice";
+import { fetchAsyncMovies } from "../../store/movies/movieSlice";
+import { fetchAsyncSeries } from "../../store/series/serieSlice";
 import ListRow from '../List/ListRow';
 import Header from "./Header";
 import MovieList from "../MovieList/MovieList";
+import SerieList from "../Series/SerieList";
 
 const Home = () => {
     const navigate = useNavigate();
@@ -88,6 +90,7 @@ const Home = () => {
             <ListRow category="Les meilleurs films" movies={movies}/>
             <ListRow category="Les meilleurs films" movies={movies}/>
             <MovieList />
+            <SerieList />
         </div>
     );
 };
