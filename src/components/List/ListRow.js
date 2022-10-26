@@ -5,16 +5,18 @@ export default function ListRow(props) {
 
     return (
             
-            <div className="movie-container">
+            <div className="list-row">
                 <h2>{category}</h2>
-                {movies.map( (movie, key) =>
-                    <Movie 
-                        title={movie.title}
-                        descriptionShort={movie.descriptionShort}
-                        image={movie.img}
-                        key={`movie${key}`}
-                    />
-                )}
+                <div className='movie-container'>
+                    {movies.map( (movie, key) =>
+                        <Movie 
+                            title={movie.title}
+                            descriptionShort={movie.descriptionShort}
+                            image={movie.img}
+                            key={`movie${key}`}
+                        />
+                    )}
+                </div>
             </div>
     )
 }
