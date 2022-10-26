@@ -3,7 +3,6 @@ import { useState } from 'react';
 export default function Movie(props) {
     const { title, descriptionShort, image } = props;
     const [showDescription, setShowDescription] = useState(false);
-
     return (
         <div 
             className="movie"

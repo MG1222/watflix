@@ -89,8 +89,6 @@ const Home = () => {
             <ListRow category="Les meilleurs films" movies={movies}/>
             <ListRow category="Les meilleurs films" movies={movies}/>
             <ListRow category="Les meilleurs films" movies={movies}/>
-            <MovieList />
-            <SerieList />
         </div>
     );
 };
