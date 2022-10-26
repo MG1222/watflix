@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Image from '../Image/Image';
 
 export default function Movie(props) {
     const { title, descriptionShort, image } = props;
@@ -9,7 +10,7 @@ export default function Movie(props) {
             onMouseEnter={(event) => setShowDescription(true)}
             onMouseLeave={(event) => setShowDescription(false)}
         >
-            <img src={image} className="movie-img"></img>
+            <Image src={image} size="small" className="movie-img"/>
             {
                 showDescription ? 
                     <div className='movie-description-short'>
@@ -19,7 +20,6 @@ export default function Movie(props) {
                 :
                     null
             }
-            
             
         </div>
     )

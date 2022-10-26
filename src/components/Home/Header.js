@@ -1,3 +1,4 @@
+import Image from "../Image/Image";
 export default function Header(props) {
     const { movie } = props;
     let description = "";
@@ -8,7 +9,7 @@ export default function Header(props) {
     }
     return (
         <div className="home-header">
-            <img src={movie.img}></img>
+            <Image src={movie.img} size="small"/>
             <h1>{movie.title}</h1>
             <p className="header-description">{description}</p>
             <p className="header-cast">
