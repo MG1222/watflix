@@ -1,25 +1,32 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import movieApi from "../../apiConf/movieApi";
 import { API_KEY } from "../../apiConf/movieApiKey";
+
 // need to return the data from the api call
 export const fetchAsyncMovies = createAsyncThunk(
     "movies/fetchAsyncMovies", async () => {
         const response =  await movieApi.get(`/movie/upcoming?api_key=${ API_KEY }`);
         return response.data;
-    });
+});
+
+export const fetchAsyncGenres = createAsyncThunk(
+    "movies/fetchAsyncGenres", async () => {
+        const response =  await movieApi.get(`/genre/movie/list?api_key=${ API_KEY }`);
+        console.log(response)
+        return response.data;
+});
 
 const initialState = {
     movies: {},
+    moviesGenres:[],
+    filter:true
 };
 
 // we create a slice of the store for the movies
 
 const movieSlice = createSlice({
     name: 'movies',
-    initialState:{
-        moviesGenres:baseUrl.get("/genre/movie/list?"+API_KEY+"&language=fr-FR"),
-        filter:true
-    },
+    initialState,
     reducers: {
         addMovies: ( state, action ) => {
             state.movies = action.payload;
@@ -34,7 +41,16 @@ const movieSlice = createSlice({
         },
         [fetchAsyncMovies.rejected]: (state) => {
             return { ...state, movies: {} };
+        },
 
+        [fetchAsyncGenres.pending]: (state) => {
+            return { ...state, isLoading: true };
+        },
+        [fetchAsyncGenres.fulfilled]: (state, { payload }) => {
+           state.moviesGenres = payload.results;
+        },
+        [fetchAsyncGenres.rejected]: (state) => {
+            return { ...state, moviesGenres: [] };
         }
     },
 })

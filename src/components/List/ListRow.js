@@ -8,6 +8,7 @@ export default function ListRow(props) {
             
             <div className="list-row">
                 <h2>{category}</h2>
+                <Filter/>
                 <div className='movie-container'>
                     {movies.map( (movie, key) =>
                         <Movie 
