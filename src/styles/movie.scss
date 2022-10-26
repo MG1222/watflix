@@ -1,0 +1,26 @@
+@import './variables.scss';
+.movie {
+    position: relative;
+    text-align: center;
+    .movie-home{
+      display: inline-block;
+      padding: 5px;
+    }
+    
+    .movie-img {
+      height: 150px;
+      width: 300px;
+      opacity: initial;
+    }
+    .movie-description-short {
+      background-color: transparent;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+        h3, p {
+          background-color: transparent;
+          color: $white;
+        }
+    }
+  }
