@@ -1,0 +1,16 @@
+.language {
+    img{
+        height: 50px;
+        width: 50px;
+        background-color: transparent;
+    }
+    padding-right: 20px;
+    .language-dropdown {
+        position: relative;
+        display: inline-block;
+        .language-dropdown-content {
+            position: absolute;
+            z-index: 1;
+        }
+    }
+}
