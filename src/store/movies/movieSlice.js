@@ -20,12 +20,3 @@ export const getAllMovies = (state) => state.movies.movies;
 export default movieSlice.reducer;
 
 
-
-
-const movieSlice = createSlice({
-    name: 'movie',
-    initialState,
-    reducers: {
-    },
-  })
-export default movieSlice.reducer;
