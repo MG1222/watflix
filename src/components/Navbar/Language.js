@@ -4,7 +4,7 @@ export default function Language() {
     const [language, setLanguage] = useState("FR");
     const [openDropdown, setOpenDropdown] = useState(false);
     const flags = {
-        FR: "https://cdn-icons-png.flaticééon.com/128/197/197560.png",
+        FR: "https://cdn-icons-png.flaticon.com/128/197/197560.png",
         EN: "https://cdn-icons-png.flaticon.com/128/197/197374.png",
     }
 
