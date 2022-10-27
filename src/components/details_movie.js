@@ -3,12 +3,14 @@ import React, {useEffect, useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import {getMovieByID} from "../store/movies/movieIDSlice";
 import '../styles/details.scss';
+import Image from "./Image/Image";
 
 
-function Details(){
+function Details_movie(){
     const {id} = useParams();
     const dispatch = useDispatch();
     const {movie} = useSelector((state) => state.movieID)
+
 
     const baseURL = 'https://image.tmdb.org/t/p/w500';
     const [time, setTime] = useState({hours : undefined, minutes: undefined});
@@ -31,19 +33,19 @@ function Details(){
             setYear(movie.release_date.split('-').shift());
         }
     }, [movie])
-
+console.log(movie);
 
     return(
             <div className='details'>
                 <div className='affiche'>
-                    <img src={`${baseURL}${movie.backdrop_path}`} alt='affiche du film'/>
+                    <Image src={`${baseURL}${movie.backdrop_path}`} size='small'/>
                 </div>
                 <div className='info'>
                     <h1>{movie.title}</h1>
                     <p>{year}</p>
                     <ul>
                         {movie.production_countries ? movie.production_countries.map((e, i) => {
-                        return <li key={i}>{e.name}</li>
+                        return <li key={i}>{e.iso_3166_1}</li>
                         })
                         : null}
                     </ul>
@@ -62,4 +64,4 @@ function Details(){
     )
 }
 
-export default Details;
+export default Details_movie;

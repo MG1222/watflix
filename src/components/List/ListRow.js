@@ -36,6 +36,7 @@ export default function ListRow(props) {
                                     title={movie.title}
                                     descriptionShort={movie.overview}
                                     image={movie.poster_path}
+                                    id={movie.id}
                                     key={`movie${key}`}
                                 />
                             )}

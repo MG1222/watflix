@@ -3,6 +3,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import moviesReducer from "./movies/movieSlice";
 import seriesReducer from "./series/serieSlice";
 import movieIDReducer from "./movies/movieIDSlice";
+import serieIDReducer from "./series/serieIDSlice";
 
 
 
@@ -10,7 +11,8 @@ import movieIDReducer from "./movies/movieIDSlice";
     reducer: {
         movies: moviesReducer,
         series: seriesReducer,
-        movieID: movieIDReducer
+        movieID: movieIDReducer,
+        serieID: serieIDReducer
     },
 });
 export default store;
