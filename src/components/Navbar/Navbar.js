@@ -11,11 +11,16 @@ export default function Navbar(props) {
     return (
         <>
             <div className="navbar">
-                <Logo brand={brand}/>
-                { links.map( (link, key) =>
-                    <NavLink to={link.to} name={link.name} key={`navlink${key}`} />
-                )}
+                <div>
+                    <Logo brand={brand}/>
+                </div>
+                <div className="links">
+                    { links.map( (link, key) =>
+                        <NavLink to={link.to} name={link.name} key={`navlink${key}`} />
+                    )}
+
                 <Account />
+                </div>
             </div>
             <Outlet/>
         </>

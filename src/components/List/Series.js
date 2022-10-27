@@ -1,7 +1,9 @@
 import { useState } from 'react';
+import Image from '../Image/Image';
+
 import {Link} from 'react-router-dom';
 
-export default function Serie(props) {
+export default function Series(props) {
 
     const { title, overview, image, id} = props;
     const [showOverview, setShowOverview] = useState(false);

@@ -3,7 +3,7 @@ import React, {useEffect, useState} from "react";
 import Movie from "./List/Movie";
 import movieApi from "../apiConf/movieApi";
 import {API_KEY} from "../apiConf/movieApiKey";
-import Serie from './List/Serie';
+import Series from './List/Series';
 import '../styles/search.scss';
 
 function Search(){
@@ -43,14 +43,11 @@ function Search(){
                     if (e.media_type==='movie') {
                         return  <Movie
                                 key={i}
-                                id={e.id}
-                                title={e.title}
-                                descriptionShort={e.overview}
-                                image={`${baseURL}${e.poster_path}`}
+                                movie={e}
                             />
                     }
                     if (e.media_type==='tv') {
-                        return  <Serie
+                        return  <Series
                                 key={i}
                                 title={e.name}
                                 overview={e.overview}
