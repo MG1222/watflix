@@ -21,7 +21,7 @@ const Home = () => {
     },[]);
 
     useEffect(() => {
-        console.log(movies);
+        //console.log(movies);
     }, [movies]);
 
 

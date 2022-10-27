@@ -10,7 +10,7 @@ export default function Header(props) {
 
 
     let movie = movies[(Math.random() * movies.length) | 0]
-    console.log(movie);
+    //console.log(movie);
     {if(movie) {
         return (
             <div className="header">

@@ -7,7 +7,6 @@ export default function Movie(props) {
 
     const dispatch = useDispatch();
     const { movie } = props;
-    console.log(movie);
     const { title, overview, backdrop_path} = movie;
 
     const [showOverview, setShowOverview] = useState(false);
