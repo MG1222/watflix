@@ -3,15 +3,17 @@ import movieApi from "../../apiConf/movieApi";
 import { API_KEY } from "../../apiConf/movieApiKey";
 
 export const getMovieByID = createAsyncThunk(
-    "movies/fetchMovieByID",
-    async (movie_ID, thunkAPI) => {
-        const response =  await movieApi.get(`/movie/${movie_ID}?api_key=${ API_KEY }`);
+    "movie/getMovieByID",
+    /**  @param arg {movieID: number} */
+    async (arg) => {
+        const response = await movieApi.get(`/movie/${arg}?api_key=${ API_KEY }&language=fr-FR`);
         return response.data;
+
     });
 
 
 const initialState = {
-    movie: [],
+    movie: {},
 };
 
 
@@ -24,7 +26,8 @@ const movieIDSlice = createSlice({
             return { ...state, isLoading: true };
         },
         [getMovieByID.fulfilled]: (state, { payload }) => {
-            state.movie = payload.results;
+            state.movie = payload;
+            console.log(payload);
         },
         [getMovieByID.rejected]: (state) => {
             return { ...state, isLoading: false };
@@ -35,5 +38,5 @@ const movieIDSlice = createSlice({
 
 
 
-
-export const movieIDReducer = movieIDSlice.reducer;
+// const movieIDReducer = movieIDSlice.reducer;
+export default movieIDSlice.reducer;

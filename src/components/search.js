@@ -40,11 +40,12 @@ function Search(){
             <div className='resultats'>
                 {loaded && resultats.map((e, i) => {
                     if (e.media_type==='movie') {
-                        return <Link to={`/details/${e.id}`} relative='path' key={i}><Movie
+                        return <Link to={`/details/${e.id}`} key={i}>
+                            <Movie
                                       title={e.title}
                                       descriptionShort={e.overview}
                                       image={`${baseURL}${e.poster_path}`}
-                        />
+                            />
                         </Link>
                     }
                 })}
