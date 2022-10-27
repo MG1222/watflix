@@ -15,7 +15,6 @@ export default function Navbar(props) {
                 { links.map( (link, key) =>
                     <NavLink to={link.to} name={link.name} key={`navlink${key}`} />
                 )}
-                <Language/>
                 <Account />
             </div>
             <Outlet/>

@@ -3,6 +3,7 @@ import movieApi from "../../apiConf/movieApi";
 import { API_KEY } from "../../apiConf/movieApiKey";
 
 // need to return the data from the api call
+
 export const fetchAsyncMovies = createAsyncThunk(
     "movies/fetchAsyncMovies", async () => {
         const response =  await movieApi.get(`/movie/upcoming?api_key=${ API_KEY }`);
@@ -17,9 +18,9 @@ export const fetchAsyncGenres = createAsyncThunk(
 });
 
 const initialState = {
-    movies: {},
     moviesGenres:[],
-    filter:true
+    filter:true,
+    movies: [],
 };
 
 // we create a slice of the store for the movies
@@ -55,7 +56,4 @@ const movieSlice = createSlice({
     },
 })
 
-
-
-export const getAllMovies = (state) => state.movies.movies;
 export default movieSlice.reducer;
