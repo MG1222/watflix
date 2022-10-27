@@ -1,15 +1,15 @@
-import {useNavigate} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import React, {useEffect, useState} from "react";
 import Movie from "./List/Movie";
 import movieApi from "../apiConf/movieApi";
 import {API_KEY} from "../apiConf/movieApiKey";
+import '../styles/search.scss';
 
 function Search(){
-    const navigate=useNavigate();
     const [inputValue, setInputValue] = useState('');
     const [loaded, setLoaded] = useState(false);
     const [resultats, setResultats] = useState([]);
-    const baseUrl = 'https://image.tmdb.org/t/p/w92';
+    const baseURL = 'https://image.tmdb.org/t/p/w500';
 
 
     useEffect(() => {
@@ -29,20 +29,24 @@ function Search(){
     }, [inputValue])
 
     return(
-        <div>
-            <button onClick={()=>navigate("/")}>Home</button>
-            <button onClick={()=>navigate("/oeuvres")}>Oeuvres</button>
-            <button onClick={()=>navigate("/details")}>Details</button>
-            <button onClick={()=>navigate("/favoris")}>Favoris</button>
-            <input type='text' onChange={e => setInputValue(encodeURIComponent(e.target.value))}/>
+        <div className='page'>
+            <div className='container'>
+                <input
+                    className='search__input'
+                    type='text' placeholder='Rechercher un film'
+                    onChange={e => setInputValue(encodeURIComponent(e.target.value))}
+                />
+            </div>
             <div className='resultats'>
                 {loaded && resultats.map((e, i) => {
                     if (e.media_type==='movie') {
-                        return <Movie key={i}
+                        return <Link to={`/details/${e.id}`} key={i}>
+                            <Movie
                                       title={e.title}
                                       descriptionShort={e.overview}
-                                      image={`${baseUrl}${e.poster_path}`}
-                        />
+                                      image={`${baseURL}${e.poster_path}`}
+                            />
+                        </Link>
                     }
                 })}
             </div>

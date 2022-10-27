@@ -1,7 +1,8 @@
 import { useState } from 'react';
+import Image from '../Image/Image';
 
 
-export default function Serie(props) {
+export default function Series(props) {
 
     const { title, overview, image} = props;
     const [showOverview, setShowOverview] = useState(false);
