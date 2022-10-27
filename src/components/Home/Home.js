@@ -11,7 +11,7 @@ const Home = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
-    const { movies }= useSelector((state) => state);
+    const { movies, series }= useSelector((state) => state);
 
 
     useEffect(() => {
@@ -25,11 +25,10 @@ const Home = () => {
     }, [movies]);
 
 
-    const { series }= useSelector((state) => state);
 
 
     useEffect(() => {
-        //console.log(series);
+        console.log(series);
     }, [series]);
 
 
