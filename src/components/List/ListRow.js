@@ -44,6 +44,7 @@ export default function ListRow(props) {
                     </div>
                     <button className="button-scroll-right" onClick={(e) => scrollRight()}>&#10095;</button>
                 </div>
+                <Filter/>
             </div>
     )
 }

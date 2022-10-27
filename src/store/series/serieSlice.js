@@ -7,17 +7,29 @@ export const fetchAsyncSeries = createAsyncThunk(
         const response = await movieApi.get(
             `/tv/popular?api_key=${API_KEY}`);
         return response.data;
-    });
+});
+
+export const fetchAsyncSeriesGenres = createAsyncThunk(
+    "movies/fetchAsyncSeriesGenres", async () => {
+        const response =  await movieApi.get(`/genre/tv/list?api_key=${ API_KEY }`);
+        return response.data;
+});
 
 const initialState = {
     series: [],
+    seriesGenres:[],
+    filter:false
 };
 
 
 const serieSlice = createSlice({
     name: 'series',
     initialState,
-    reducers: {},
+    reducers: {
+        changeFilter:(state)=>{
+            state.filter=!state.filter;
+        }
+    },
     extraReducers: {
         [fetchAsyncSeries.pending]: (state) => {
             return { ...state, isLoading: true };
@@ -26,9 +38,20 @@ const serieSlice = createSlice({
             state.series = payload.results;
         },
         [fetchAsyncSeries.rejected]: (state) => {
-            return { ...state, series: {} };
+            return { ...state, series: [] };
+        },
+
+        [fetchAsyncSeriesGenres.pending]: (state) => {
+            return { ...state, isLoading: true };
+        },
+        [fetchAsyncSeriesGenres.fulfilled]: (state, { payload }) => {
+           state.seriesGenres = payload.genres;
+        },
+        [fetchAsyncSeriesGenres.rejected]: (state) => {
+            return { ...state, seriesGenres: [] };
         }
     },
 })
 
+export const {changeFilter}=serieSlice.actions;
 export default serieSlice.reducer;
