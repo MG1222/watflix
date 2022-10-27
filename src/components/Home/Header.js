@@ -1,23 +1,47 @@
 import Image from "../Image/Image";
+import {useEffect} from "react";
 export default function Header(props) {
-    const { movie } = props;
-    let description = "";
-    if(movie.description.length > 500) {
-        description = movie.overview.slice(0, 500) + "...";
-    } else {
-        description = movie.overview;
+
+    const { movies } = props.movies;
+
+    useEffect(() => {
+       // console.log(movies[1]);
+    }, [movies]);
+
+
+    let movie = movies[(Math.random() * movies.length) | 0]
+    console.log(movie);
+    {if(movie) {
+        return (
+            <div className="header">
+                <div className="header-container">
+                    <div className="header-image">
+                        <Image src={`https://image.tmdb.org/t/p/w780/${movie.poster_path}`} size="small" className="movie-img"/>
+                    </div>
+                    <div className="header-text">
+                        <h1>{movie.title}</h1>
+                        <p>{movie.overview}</p>
+                    </div>
+                </div>
+            </div>
+        )
     }
-    return (
-        <div className="home-header">
-            <Image src={movie.img} size="small"/>
-            <h1>{movie.title}</h1>
-            <p className="header-description">{description}</p>
-            <p className="header-cast">
-                Cast: 
-                    {movie.cast.map((actor, key) => {
-                        return <li key={`actor${key}`}>{actor.name}</li>
-                    })}
-            </p>
-        </div>
-    )
-};
+    else {
+        return (
+            <div className="header">
+                <div className="header-container">
+                    <div className="header-image">
+                       We are loading the movies
+                    </div>
+                    <div className="header-text">
+                        <h1>Movie</h1>
+                    </div>
+                </div>
+            </div>
+        )
+    }
+    }
+
+    }
+
+
