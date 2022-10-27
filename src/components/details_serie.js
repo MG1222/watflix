@@ -22,7 +22,7 @@ function Details_serie(){
     }, [])
 
     useEffect(() => {
-        if (serie.release_date) {
+        if (serie.first_air_date) {
             setYear(serie.first_air_date.split('-').shift());
         }
     }, [serie])
