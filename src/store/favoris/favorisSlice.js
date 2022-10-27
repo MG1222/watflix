@@ -9,20 +9,37 @@ const favorisSlice = createSlice({
     name: 'favoris',
     initialState,
     reducers: {
-        addMovie: (state, action) => {
+        addMovie(state, action) {
+            let copie = [...state.movies]
+            copie.push(action.payload);
             return {
                 ...state,
-                movies : [...state.movies, action.payload]
+                movies: copie
             }
         },
         removeMovie(state, action) {
-            state.movies.remove(action.payload)
+            let copie = [...state.movies]
+            copie.filter(elem => elem.title !== action.payload.title);
+            return {
+                ...state,
+                movies: copie
+            }
         },
         addSerie(state, action) {
-            state.series.push(action.payload)
+            let copie = [...state.series]
+            copie.push(action.payload);
+            return {
+                ...state,
+                series: copie
+            }
         },
         removeSerie(state, action) {
-            state.series.remove(action.payload)
+            let copie = [...state.seires]
+            copie.remove(action.payload);
+            return {
+                ...state,
+                series: copie
+            }
         }
     }
 })

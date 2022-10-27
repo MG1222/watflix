@@ -6,7 +6,7 @@ export default function ListRow(props) {
     const { movies } = props.movies;
 
     useEffect(() => {
-        //console.log(movies);
+        console.log(movies);
     }, [movies]);
 
     const [translation, setTranslation] = useState(0);
@@ -33,9 +33,7 @@ export default function ListRow(props) {
                     <div className='movie-container' style={{transform: `translateX(${translation}px)`}}>
                             {movies.map( (movie, key) =>
                                 <Movie
-                                    title={movie.title}
-                                    descriptionShort={movie.overview}
-                                    image={movie.poster_path}
+                                    movie={movie}
                                     key={`movie${key}`}
                                 />
                             )}

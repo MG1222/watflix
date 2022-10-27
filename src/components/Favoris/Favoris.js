@@ -3,18 +3,14 @@ import { useSelector } from 'react-redux';
 
 export default function Favoris() {
 
-    const movies = useSelector(state => state);
-    const series = useSelector(state => state);
+    const { movies } = useSelector(state => state.favoris);
     console.log(movies);
-    //[undefined, undefined]
     return (
         <div className="favoris">
             {
                 movies.map((movie, key) => 
                     <Movie
-                        title={movie.title}
-                        descriptionShort={movie.descriptionShort}
-                        image={movie.img}
+                        movie={movie}
                         key={`movie${key}`}
                         className="movie-favoris"
                     />
