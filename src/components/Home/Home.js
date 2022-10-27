@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAsyncMovies} from "../../store/movies/movieSlice";
@@ -21,7 +21,7 @@ const Home = () => {
     },[]);
 
     useEffect(() => {
-        //console.log(movies);
+        console.log(movies);
     }, [movies]);
 
 
@@ -34,14 +34,11 @@ const Home = () => {
 
 
     return (
-
-
         <div className="home">
             <Header movies={movies}/>
             <ListRow category="Les meilleurs films" movies={movies} type="movies"/>
             <ListRow category="Les meilleurs series" movies={series} type="series"/>
         </div>
-
     );
 };
 export default Home;
