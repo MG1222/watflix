@@ -1,14 +1,15 @@
+import Image from "../Image/Image";
 export default function Header(props) {
     const { movie } = props;
     let description = "";
     if(movie.description.length > 500) {
-        description = movie.description.slice(0, 500) + "...";
+        description = movie.overview.slice(0, 500) + "...";
     } else {
-        description = movie.description;
+        description = movie.overview;
     }
     return (
         <div className="home-header">
-            <img src={movie.img}></img>
+            <Image src={movie.img} size="small"/>
             <h1>{movie.title}</h1>
             <p className="header-description">{description}</p>
             <p className="header-cast">

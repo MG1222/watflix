@@ -10,7 +10,7 @@ export const fetchAsyncSeries = createAsyncThunk(
     });
 
 const initialState = {
-    series: {},
+    series: [],
 };
 
 
@@ -24,9 +24,11 @@ const serieSlice = createSlice({
         },
         [fetchAsyncSeries.fulfilled]: (state, { payload }) => {
             state.series = payload.results;
+        },
+        [fetchAsyncSeries.rejected]: (state) => {
+            return { ...state, series: {} };
         }
     },
 })
 
-export const getAllSeries = (state) => state.series.series;
 export default serieSlice.reducer;
