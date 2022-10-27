@@ -6,7 +6,7 @@ export default function ListRow(props) {
     const { movies } = props.movies;
 
     useEffect(() => {
-        console.log(movies);
+        //console.log(movies);
     }, [movies]);
 
     const [translation, setTranslation] = useState(0);
