@@ -4,10 +4,11 @@
     text-align: center;
     display: inline-block;
     padding: 5px;
-    
+    height:100%;
+    width: 20%;
     .movie-img {
-      height: 402px;
-      width: 282px;
+      height: 100%;
+      width: 100%;
       opacity: initial;
     }
     .movie-description-short {
@@ -15,6 +16,9 @@
       position: absolute;
       top: 50%;
       left: 50%;
+      width:90%;
+      height: 90%;
+      white-space: normal;
       transform: translate(-50%, -50%);
         h3, p {
           background-color: transparent;
