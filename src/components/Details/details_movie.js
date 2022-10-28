@@ -18,21 +18,25 @@ function Details_movie(){
     const baseURL = 'https://image.tmdb.org/t/p/w500';
     const [time, setTime] = useState({hours : undefined, minutes: undefined});
     const [year, setYear] = useState(undefined);
+    const language = useSelector(state => state.movies.language);
 
     const toggleFavoris = () => {
         if(isFav) {
-            dispatch(removeMovie(movie));
+            dispatch(removeMovie(movie.id));
             setFav(false);
         } else {
-            dispatch(addMovie(movie))
+            dispatch(addMovie(movie.id))
             setFav(true);
         }
     }
 
+    useEffect( () => {
+        dispatch(getMovieByID(parseInt(id), language));
+    }, [])
 
     useEffect( () => {
-        dispatch(getMovieByID(parseInt(id)));
-    }, [])
+        dispatch(getMovieByID(parseInt(id), language));
+    }, [language])
 
     useEffect(() => {
         if (movie.runtime) {

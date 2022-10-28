@@ -11,10 +11,9 @@ const Home = () => {
 
     const { movies, series }= useSelector((state) => state);
 
-
     useEffect(() => {
-        dispatch(fetchAsyncMovies());
-        dispatch(fetchAsyncSeries());
+        dispatch(fetchAsyncMovies(movies.language));
+        dispatch(fetchAsyncSeries(series.language));
 
     },[]);
 

@@ -1,4 +1,6 @@
 import Movie from './Movie.js';
+import Filter from "../filter.js";
+import {useEffect} from "react";
 import Series from './Series.js';
 import { useState } from 'react';
 import '../../styles/list.scss';
@@ -17,11 +19,9 @@ export default function ListRow(props) {
     }
 
     const scrollRight = () => {
-        if(translation -310 >= (movies.length-1) * -310) {
             setTranslation(translation - 310);
-        }
-
     }
+
     {if(type === "movies") {
     return (
         <div className="list-row">
@@ -57,6 +57,7 @@ export default function ListRow(props) {
                     </div>
                     <button className="button-scroll-right" onClick={() => scrollRight()}>&#10095;</button>
                 </div>
+                <Filter/>
             </div>
         )
     }

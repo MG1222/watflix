@@ -1,11 +1,17 @@
 import { useState } from 'react';
+import { useDispatch } from "react-redux";
 
 import {Link} from 'react-router-dom';
 
 export default function Series(props) {
 
+    const dispatch = useDispatch();
     const { name, overview, backdrop_path, id} = props.serie;
     const [showOverview, setShowOverview] = useState(false);
+    let description = overview;
+    if(overview.length > 200) {
+        description = overview.slice(0, 200) + " (...)";
+    }
 
 
     return (
@@ -20,7 +26,7 @@ export default function Series(props) {
 
                     <div className='movie-description-short'>
                         <h3>{name}</h3>
-                        <p>{overview}</p>
+                        <p>{description}</p>
 
                     </div>
                     :
