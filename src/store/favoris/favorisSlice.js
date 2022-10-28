@@ -19,7 +19,7 @@ const favorisSlice = createSlice({
         },
         removeMovie(state, action) {
             let copie = [...state.movies]
-            copie.filter(elem => elem.title !== action.payload.title);
+            copie = copie.filter(elem => elem.id !== action.payload.id);
             return {
                 ...state,
                 movies: copie
@@ -34,8 +34,8 @@ const favorisSlice = createSlice({
             }
         },
         removeSerie(state, action) {
-            let copie = [...state.seires]
-            copie.remove(action.payload);
+            let copie = [...state.series]
+            copie = copie.filter(elem => elem.id !== action.payload.id);
             return {
                 ...state,
                 series: copie

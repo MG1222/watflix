@@ -55,9 +55,7 @@ export default function ListRow(props) {
                     <div className='movie-container' style={{transform: `translateX(${translation}px)`}}>
                         {movies.series.map((serie, key) =>
                             <Series
-                                title={serie.title}
-                                descriptionShort={serie.overview}
-                                image={serie.poster_path}
+                                serie={serie}
                                 key={`serie${key}`}
                             />
                         )}

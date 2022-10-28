@@ -8,7 +8,6 @@ export const getMovieByID = createAsyncThunk(
     async (arg) => {
         const response = await movieApi.get(`/movie/${arg}?api_key=${ API_KEY }&language=fr-FR`);
         return response.data;
-
     });
 
 
@@ -27,16 +26,13 @@ const movieIDSlice = createSlice({
         },
         [getMovieByID.fulfilled]: (state, { payload }) => {
             state.movie = payload;
-            console.log(payload);
         },
         [getMovieByID.rejected]: (state) => {
             return { ...state, isLoading: false };
-
         }
     },
 })
 
 
 
-// const movieIDReducer = movieIDSlice.reducer;
 export default movieIDSlice.reducer;
