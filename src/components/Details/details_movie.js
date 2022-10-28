@@ -2,7 +2,6 @@ import {useParams} from 'react-router-dom';
 import React, {useEffect, useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import {getMovieByID} from "../../store/movies/movieIDSlice";
-import '../../styles/details.scss';
 import Image from "../Image/Image";
 import {addMovie, removeMovie} from "../../store/favoris/favorisSlice";
 
@@ -61,22 +60,26 @@ function Details_movie(){
                 </div>
                 <div className='info'>
                     <h1>{movie.title}</h1>
-                    <p>{year}</p>
+                    <h4>Date de sortie : {year}</h4>
                     <ul>
+                        <h4>Pays de production : </h4>
                         {movie.production_countries ? movie.production_countries.map((e, i) => {
                         return <li key={i}>{e.iso_3166_1}</li>
                         })
                         : null}
                     </ul>
-                    <p>Note des spectateurs : {movie.vote_average*10}%</p>
-                    <p>Durée : {time.hours}h {time.minutes}min</p>
+                    <h4>Note des spectateurs : {movie.vote_average*10}%</h4>
+                    <h4>Durée : {time.hours}h {time.minutes}min</h4>
+
                     <ul>
+                        <h4>Genres :</h4>
                         {movie.genres ? movie.genres.map((e, i) => {
                             return <li key={i}>{e.name}</li>
                         })
                         :null}
                     </ul>
-                    <p>{movie.overview}</p>
+                    <h4>Synopsis : </h4>
+                        <p>{movie.overview} </p>
                 </div>
             </div>
 
