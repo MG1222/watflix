@@ -15,7 +15,9 @@ export default function Header(props) {
                     </div>
                     <div className="header-text">
                         <h1>{movie.title}</h1>
+                        <div>
                         <p>{movie.overview}</p>
+                        </div>
                     </div>
                 </div>
             </div>
