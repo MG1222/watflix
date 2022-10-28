@@ -1,14 +1,13 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import movieApi from "../../apiConf/movieApi";
 import { API_KEY } from "../../apiConf/movieApiKey";
-
 // need to return the data from the api call
 
 export const fetchAsyncMovies = createAsyncThunk(
-    "movies/fetchAsyncMovies", async () => {
-        const response =  await movieApi.get(`/movie/top_rated?api_key=${ API_KEY }`);
+    "movies/fetchAsyncMovies", async (language) => {
+        const response =  await movieApi.get(`/movie/top_rated?api_key=${ API_KEY }&language=${language}`);
         return response.data;
-});
+    });
 
 export const fetchAsyncMoviesGenres = createAsyncThunk(
     "movies/fetchAsyncMoviesGenres", async () => {
@@ -29,6 +28,7 @@ const initialState = {
     moviesByGenres:[],
     filter:false,
     filterValue:0
+    language: "fr-FR"
 };
 
 // we create a slice of the store for the movies
@@ -42,6 +42,9 @@ const movieSlice = createSlice({
         },
         changeMoviesFilterValue:(state,action)=>{
             state.filterValue=action.payload;
+        },
+        updateLanguageMovies(state, action) {
+            state.language = action.payload;
         }
     },
     extraReducers: {
@@ -77,5 +80,5 @@ const movieSlice = createSlice({
     },
 })
 
-export const {changeMoviesFilter, changeMoviesFilterValue}=movieSlice.actions;
+export const {changeMoviesFilter, changeMoviesFilterValue,  updateLanguageMovies}=movieSlice.actions;
 export default movieSlice.reducer;

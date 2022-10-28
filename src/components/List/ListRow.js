@@ -8,11 +8,6 @@ export default function ListRow(props) {
     const { movies } = props;
     const { type } = props;
 
-
-    useEffect(() => {
-        //console.log(movies);
-    }, [movies]);
-
     const [translation, setTranslation] = useState(0);
 
     const scrollLeft = () => {
@@ -23,11 +18,9 @@ export default function ListRow(props) {
     }
 
     const scrollRight = () => {
-        if(translation -310 >= (movies.length-1) * -310) {
             setTranslation(translation - 310);
-        }
-
     }
+
     {if(type === "movies") {
     return (
         <div className="list-row">

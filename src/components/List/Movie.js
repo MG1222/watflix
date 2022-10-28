@@ -11,11 +11,10 @@ export default function Movie(props) {
     const { title, overview, backdrop_path, id } = movie;
 
     const [showOverview, setShowOverview] = useState(false);
-    let description;
+    let description = overview;
     if(overview.length > 200) {
-        description = overview.split(0, 200);
+        description = overview.slice(0, 200) + " (...)";
     }
-
     return (
         <Link to={`/details/movie/${id}`}>
         <div className="movie"
