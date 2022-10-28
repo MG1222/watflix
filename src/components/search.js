@@ -43,19 +43,13 @@ function Search(){
                     if (e.media_type==='movie') {
                         return  <Movie
                                 key={i}
-                                id={e.id}
-                                title={e.title}
-                                descriptionShort={e.overview}
-                                image={`${baseURL}${e.poster_path}`}
+                                movie={e}
                             />
                     }
                     if (e.media_type==='tv') {
                         return  <Series
                                 key={i}
-                                title={e.name}
-                                overview={e.overview}
-                                image={`${baseURL}${e.poster_path}`}
-                                id={e.id}
+                                serie={e}
                             />
                     }
                 })}
