@@ -15,7 +15,6 @@ export default function Movie(props) {
     if(overview.length > 200) {
         description = overview.slice(0, 200) + " (...)";
     }
-    if(title === "Parasite") console.log(movie);
     return (
         <Link to={`/details/movie/${id}`}>
         <div className="movie"

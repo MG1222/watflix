@@ -8,7 +8,6 @@ export default function Favoris() {
     const dispatch = useDispatch();
     const { favoris, series, movies } = useSelector(state => state);
     const language = movies.language;
-    console.log("favoris", favoris.movies)
     const favMovies = movies.movies.filter(
         (e) => favoris.movies.includes(e.id)
     )

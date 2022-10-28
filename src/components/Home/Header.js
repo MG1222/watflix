@@ -4,13 +4,8 @@ export default function Header(props) {
 
     const { movies } = props.movies;
 
-    useEffect(() => {
-       // console.log(movies[1]);
-    }, [movies]);
-
 
     let movie = movies[(Math.random() * movies.length) | 0]
-    //console.log(movie);
     {if(movie) {
         return (
             <div className="header">

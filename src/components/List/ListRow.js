@@ -7,11 +7,6 @@ export default function ListRow(props) {
     const { movies } = props;
     const { type } = props;
 
-
-    useEffect(() => {
-        //console.log(movies);
-    }, [movies]);
-
     const [translation, setTranslation] = useState(0);
 
     const scrollLeft = () => {

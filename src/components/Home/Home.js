@@ -19,17 +19,6 @@ const Home = () => {
 
     },[]);
 
-    useEffect(() => {
-        //console.log("movies", movies);
-    }, [movies]);
-
-
-
-
-    useEffect(() => {
-        console.log(series);
-    }, [series]);
-
 
     return (
         <div className="home">
