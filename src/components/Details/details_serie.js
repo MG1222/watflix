@@ -79,11 +79,6 @@ function Details_serie(){
                 </ul>
                 <h4>Synopsis : </h4>
                 <p>{serie.overview}</p>
-                <h2>Créateurs :</h2>
-                {serie.created_by ? serie.created_by.map((e, i) => {
-                    return <p key={i}>{e.name}</p>
-                })
-                : null}
             </div>
         </div>
 
