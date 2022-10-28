@@ -5,7 +5,6 @@ import { fetchAsyncMovies} from "../../store/movies/movieSlice";
 import { fetchAsyncSeries } from "../../store/series/serieSlice";
 import ListRow from '../List/ListRow';
 import Header from "./Header";
-import {fetchAsyncSeries} from "../../store/series/serieSlice";
 
 
 const Home = () => {
@@ -21,7 +20,7 @@ const Home = () => {
     },[]);
 
     useEffect(() => {
-        //console.log(movies);
+        console.log(movies);
     }, [movies]);
 
 

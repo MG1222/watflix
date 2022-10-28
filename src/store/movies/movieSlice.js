@@ -18,7 +18,8 @@ export const fetchAsyncMoviesGenres = createAsyncThunk(
 
 export const fetchAsyncMoviesByGenres = createAsyncThunk(
     "movies/fetchAsyncMoviesByGenres", async () => {
-        const response =  await movieApi.get(`/discover/movie?api_key=${ API_KEY }&sort_by=original_title.desc&with_genres=${initialState.filterValue}`);
+        const select=document.getElementById("filter-movies-by-genres");
+        const response =  await movieApi.get(`/discover/movie?api_key=${ API_KEY }&sort_by=original_title.desc&with_genres=${parseInt(select.value)}`);
         return response.data;
 });
 
@@ -26,7 +27,7 @@ const initialState = {
     movies: [],
     moviesGenres:[],
     moviesByGenres:[],
-    filter:true,
+    filter:false,
     filterValue:0
 };
 
@@ -36,13 +37,11 @@ const movieSlice = createSlice({
     name: 'movies',
     initialState,
     reducers: {
-        changeFilter:(state)=>{
+        changeMoviesFilter:(state)=>{
             state.filter=!state.filter;
         },
-        changeFilterValue:(state,action)=>{
+        changeMoviesFilterValue:(state,action)=>{
             state.filterValue=action.payload;
-            console.log(state.filterValue);
-            console.log(state.moviesByGenres);
         }
     },
     extraReducers: {
@@ -78,5 +77,5 @@ const movieSlice = createSlice({
     },
 })
 
-export const {changeFilter, changeFilterValue}=movieSlice.actions;
+export const {changeMoviesFilter, changeMoviesFilterValue}=movieSlice.actions;
 export default movieSlice.reducer;
