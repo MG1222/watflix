@@ -5,4 +5,14 @@
     grid-template-columns: 20% 20% 20% 20% 20%;
     padding-top: 100px;
     row-gap: 20px;
+    .favorisMovie{
+        .movie {
+            width: 100%;
+        }
+    }
+    .favorisSerie{
+        .movie {
+            width: 100%;
+        }
+    }
 }
