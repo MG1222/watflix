@@ -2,44 +2,26 @@ import Movie from "../List/Movie";
 import Series from "../List/Series";
 import { useSelector, useDispatch } from 'react-redux';
 import {getMovieByID} from "../../store/movies/movieIDSlice";
-import {useEffect} from "react";
+import React, {useEffect} from "react";
+import ListRow from "../List/ListRow";
 
 export default function Favoris() {
     const dispatch = useDispatch();
     const { favoris, series, movies } = useSelector(state => state);
-    const language = movies.language;
-    const favMovies = movies.movies.filter(
-        (e) => favoris.movies.includes(e.id)
-    )
-    const favSeries = series.series.filter(
-        (e) => favoris.series.includes(e.id)
-    )
-
+    const favMovies = {
+        movies : movies.movies.filter(
+            (e) => favoris.movies.includes(e.id)
+        )
+    }
+    const favSeries = {
+        series: series.series.filter(
+            (e) => favoris.series.includes(e.id)
+        )
+    }
     return (
         <div className="favoris">
-            <div className="favorisMovie">
-                {
-                    favMovies.map((movie, key) => {
-                        return <Movie
-                            movie={movie}
-                            key={`movie${key}`}
-                            className="movie-favoris"
-                        />
-                    }
-                    )
-                }
-            </div>
-            <div className="favorisSeries">
-                {
-                    favSeries.map((serie, key) =>
-                        <Series
-                            serie={serie}
-                            key={`serie${key}`}
-                            className="serie-favoris"
-                        />
-                    )
-                }
-            </div>
+            <ListRow category="Mes films favoris" movies={favMovies} type="movies"/>
+            <ListRow category="Mes séries favorites" movies={favSeries} type="series"/>
         </div>
     )
 }
