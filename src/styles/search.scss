@@ -14,13 +14,7 @@
     padding: 4rem;
 
 
-.search {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-  
-  &__input {
+    .input {
     width: 96%;
     padding: 19px 24px;
     background-color: transparent;
@@ -51,6 +45,5 @@
       background-position: 100% center;
     }
   }
-}
 }
 }
