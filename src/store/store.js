@@ -4,6 +4,7 @@ import moviesReducer from "./movies/movieSlice";
 import seriesReducer from "./series/serieSlice";
 import favorisReducer from './favoris/favorisSlice';
 import movieIDReducer from "./movies/movieIDSlice";
+import serieIDReducer from "./series/serieIDSlice";
 
 
 
@@ -12,7 +13,8 @@ import movieIDReducer from "./movies/movieIDSlice";
         movies: moviesReducer,
         series: seriesReducer,
         movieID: movieIDReducer,
-        favoris: favorisReducer
+        favoris: favorisReducer,
+        serieID: serieIDReducer
     },
 });
 export default store;

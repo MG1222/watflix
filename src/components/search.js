@@ -3,6 +3,7 @@ import React, {useEffect, useState} from "react";
 import Movie from "./List/Movie";
 import movieApi from "../apiConf/movieApi";
 import {API_KEY} from "../apiConf/movieApiKey";
+import Series from './List/Series';
 import '../styles/search.scss';
 
 function Search(){
@@ -33,20 +34,29 @@ function Search(){
             <div className='container'>
                 <input
                     className='search__input'
-                    type='text' placeholder='Rechercher un film'
+                    type='text' placeholder='Rechercher un titre de film ou série'
                     onChange={e => setInputValue(encodeURIComponent(e.target.value))}
                 />
             </div>
             <div className='resultats'>
                 {loaded && resultats.map((e, i) => {
                     if (e.media_type==='movie') {
-                        return <Link to={`/details/${e.id}`} key={i}>
-                            <Movie
-                                      title={e.title}
-                                      descriptionShort={e.overview}
-                                      image={`${baseURL}${e.poster_path}`}
+                        return  <Movie
+                                key={i}
+                                id={e.id}
+                                title={e.title}
+                                descriptionShort={e.overview}
+                                image={`${baseURL}${e.poster_path}`}
                             />
-                        </Link>
+                    }
+                    if (e.media_type==='tv') {
+                        return  <Series
+                                key={i}
+                                title={e.name}
+                                overview={e.overview}
+                                image={`${baseURL}${e.poster_path}`}
+                                id={e.id}
+                            />
                     }
                 })}
             </div>

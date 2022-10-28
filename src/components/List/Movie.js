@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import {Link} from 'react-router-dom';
 import Image from '../Image/Image';
 import { useSelector, useDispatch } from "react-redux";
 import {addMovie, removeMovie } from "../../store/favoris/favorisSlice";
@@ -8,7 +9,7 @@ export default function Movie(props) {
     const dispatch = useDispatch();
     const { movie } = props;
     console.log(movie);
-    const { title, overview, backdrop_path} = movie;
+    const { title, overview, backdrop_path, id } = movie;
 
     const [showOverview, setShowOverview] = useState(false);
     const favoris = useSelector((state) => state.favoris.movies);
@@ -24,6 +25,7 @@ export default function Movie(props) {
         }
     }
     return (
+        <Link to={`/details/movie/${id}`}>
         <div className="movie"
             onMouseEnter={(event) => setShowOverview(true)}
             onMouseLeave={(event) => setShowOverview(false)}
@@ -45,5 +47,6 @@ export default function Movie(props) {
                     null
             }
         </div>
+        </Link>
     )
 }
