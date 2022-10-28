@@ -8,8 +8,12 @@ import {Link} from 'react-router-dom';
 export default function Series(props) {
 
     const dispatch = useDispatch();
-    const { title, overview, backdrop_path, id} = props.serie;
+    const { name, overview, backdrop_path, id} = props.serie;
     const [showOverview, setShowOverview] = useState(false);
+    let description = overview;
+    if(overview.length > 200) {
+        description = overview.slice(0, 200) + " (...)";
+    }
 
 
     return (
@@ -23,8 +27,8 @@ export default function Series(props) {
                     showOverview ?
 
                     <div className='movie-description-short'>
-                        <h3>{title}</h3>
-                        <p>{overview}</p>
+                        <h3>{name}</h3>
+                        <p>{description}</p>
 
                     </div>
                     :

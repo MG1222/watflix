@@ -22,11 +22,9 @@ export default function ListRow(props) {
     }
 
     const scrollRight = () => {
-        if(translation -310 >= (movies.length-1) * -310) {
             setTranslation(translation - 310);
-        }
-
     }
+
     {if(type === "movies") {
     return (
         <div className="list-row">
