@@ -5,13 +5,9 @@
 @import './styles/list.scss';
 @import './styles/favoris.scss';
 @import './styles/language.scss';
+@import './styles/detail.scss';
 
 * {
   background-color: $black;
 }
 
-.affiche{
-  button{
-    color:$white;
-  }
-}

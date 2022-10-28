@@ -2,7 +2,6 @@ import {useParams} from 'react-router-dom';
 import React, {useEffect, useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import {getserieByID} from "../store/series/serieIDSlice";
-import '../styles/details.scss';
 import Image from "./Image/Image";
 import {addSerie, removeSerie} from "../store/favoris/favorisSlice";
 
@@ -52,31 +51,34 @@ function Details_serie(){
             </div>
             <div className='info'>
                 <h1>{serie.name}</h1>
-                <p>{year}</p>
+                <h3>Créateurs :</h3>
+                {serie.created_by ? serie.created_by.map((e, i) => {
+                        return <p key={i}>{e.name}</p>
+                    })
+                    : null}
+                <h4>Date de sortie : {year}</h4>
                 {serie.in_production ?
-                <p>En cours</p>
-                : <p>Finie</p>}
+                <h4>En cours</h4>
+                : <h4>Finie</h4>}
                 <ul>
+                    <h4>Pays de production : </h4>
                     {serie.production_countries ? serie.production_countries.map((e, i) => {
                             return <li key={i}>{e.iso_3166_1}</li>
                         })
                         : null}
                 </ul>
-                <p>Note des spectateurs : {serie.vote_average*10}%</p>
-                <p>Nombre d'épisodes : {serie.number_of_episodes}</p>
-                <p>Nombre de saisons : {serie.number_of_seasons}</p>
+                <h4>Note des spectateurs : {serie.vote_average*10}%</h4>
+                <h4>Nombre d'épisodes : {serie.number_of_episodes}</h4>
+                <h4>Nombre de saisons : {serie.number_of_seasons}</h4>
                 <ul>
+                    <h4>Genres :</h4>
                     {serie.genres ? serie.genres.map((e, i) => {
                             return <li key={i}>{e.name}</li>
                         })
                         :null}
                 </ul>
+                <h4>Synopsis : </h4>
                 <p>{serie.overview}</p>
-                <h2>Créateurs :</h2>
-                {serie.created_by ? serie.created_by.map((e, i) => {
-                    return <p key={i}>{e.name}</p>
-                })
-                : null}
             </div>
         </div>
 
