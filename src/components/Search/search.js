@@ -30,7 +30,7 @@ function Search(){
         <div className='page'>
             <div className='container'>
                 <input
-                    className='input'
+                    className='search__input'
                     type='text' placeholder='Rechercher un titre de film ou série'
                     onChange={e => setInputValue(encodeURIComponent(e.target.value))}
                 />
