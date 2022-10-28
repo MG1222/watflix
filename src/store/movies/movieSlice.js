@@ -27,7 +27,7 @@ const initialState = {
     moviesGenres:[],
     moviesByGenres:[],
     filter:false,
-    filterValue:0
+    filterValue:0,
     language: "fr-FR"
 };
 

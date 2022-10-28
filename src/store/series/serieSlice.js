@@ -24,7 +24,7 @@ export const fetchAsyncSeriesByGenres = createAsyncThunk(
 
 const initialState = {
     series: [],
-    language: "fr-FR"
+    language: "fr-FR",
     seriesGenres:[],
     seriesByGenres:[],
     filter:false,
