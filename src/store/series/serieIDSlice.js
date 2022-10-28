@@ -5,8 +5,8 @@ import { API_KEY } from "../../apiConf/movieApiKey";
 export const getserieByID = createAsyncThunk(
     "serie/getserieByID",
     /**  @param arg {serieID: number} */
-    async (arg) => {
-        const response = await movieApi.get(`/tv/${arg}?api_key=${ API_KEY }&language=fr-FR`);
+    async (arg, language) => {
+        const response = await movieApi.get(`/tv/${arg}?api_key=${ API_KEY }&language=${language}`);
         return response.data;
 
     });

@@ -3,21 +3,26 @@ import movieApi from "../../apiConf/movieApi";
 import { API_KEY } from "../../apiConf/movieApiKey";
 
 export const fetchAsyncSeries = createAsyncThunk(
-    "series/fetchSeries", async () => {
+    "series/fetchSeries", async (language) => {
         const response = await movieApi.get(
-            `/tv/popular?api_key=${API_KEY}`);
+            `/tv/popular?api_key=${API_KEY}&language=${language}`);
         return response.data;
     });
 
 const initialState = {
     series: [],
+    language: "fr-FR"
 };
 
 
 const serieSlice = createSlice({
     name: 'series',
     initialState,
-    reducers: {},
+    reducers: {
+        updateLanguageSeries(state, action) {
+            state.language = action.payload;
+        }
+    },
     extraReducers: {
         [fetchAsyncSeries.pending]: (state) => {
             return { ...state, isLoading: true };
@@ -31,4 +36,5 @@ const serieSlice = createSlice({
     },
 })
 
+export const { updateLanguageSeries } = serieSlice.actions;
 export default serieSlice.reducer;
