@@ -19,10 +19,10 @@ function Details_serie(){
 
     const toggleFavoris = () => {
         if(isFav) {
-            dispatch(removeSerie(serie));
+            dispatch(removeSerie(serie.id));
             setFav(false);
         } else {
-            dispatch(addSerie(serie))
+            dispatch(addSerie(serie.id))
             setFav(true);
         }
     }
