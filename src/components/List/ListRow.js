@@ -1,16 +1,11 @@
 import Movie from './Movie.js';
 import Series from './Series.js';
-import { useEffect } from "react";
 import { useState } from 'react';
+import '../../styles/list.scss';
 
 export default function ListRow(props) {
     const { movies } = props;
     const { type } = props;
-
-
-    useEffect(() => {
-        //console.log(movies);
-    }, [movies]);
 
     const [translation, setTranslation] = useState(0);
 
@@ -50,19 +45,17 @@ export default function ListRow(props) {
             <div className="list-row">
                 <h2>{props.category}</h2>
                 <div className="scroll-container">
-                    <button className="button-scroll-left" onClick={(e) => scrollLeft()}>&#10094;</button>
+                    <button className="button-scroll-left" onClick={() => scrollLeft()}>&#10094;</button>
                     <div className='movie-container' style={{transform: `translateX(${translation}px)`}}>
                         {movies.series.map((serie, key) =>
                             <Series
-                                title={serie.title}
-                                descriptionShort={serie.overview}
-                                image={serie.poster_path}
+                                serie={serie}
                                 key={`serie${key}`}
                             />
                         )}
 
                     </div>
-                    <button className="button-scroll-right" onClick={(e) => scrollRight()}>&#10095;</button>
+                    <button className="button-scroll-right" onClick={() => scrollRight()}>&#10095;</button>
                 </div>
             </div>
         )

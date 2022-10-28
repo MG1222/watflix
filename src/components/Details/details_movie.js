@@ -1,9 +1,10 @@
 import {useParams} from 'react-router-dom';
 import React, {useEffect, useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import {getMovieByID} from "../store/movies/movieIDSlice";
-import '../styles/details.scss';
-import Image from "./Image/Image";
+import {getMovieByID} from "../../store/movies/movieIDSlice";
+import '../../styles/details.scss';
+import Image from "../Image/Image";
+import {addMovie, removeMovie} from "../../store/favoris/favorisSlice";
 
 
 function Details_movie(){
@@ -11,12 +12,22 @@ function Details_movie(){
     const dispatch = useDispatch();
     const {movie} = useSelector((state) => state.movieID)
 
+    const favoris = useSelector((state) => state.favoris.movies);
+    const [isFav, setFav] = useState(favoris.includes(movie));
 
     const baseURL = 'https://image.tmdb.org/t/p/w500';
     const [time, setTime] = useState({hours : undefined, minutes: undefined});
     const [year, setYear] = useState(undefined);
 
-
+    const toggleFavoris = () => {
+        if(isFav) {
+            dispatch(removeMovie(movie));
+            setFav(false);
+        } else {
+            dispatch(addMovie(movie))
+            setFav(true);
+        }
+    }
 
 
     useEffect( () => {
@@ -33,12 +44,16 @@ function Details_movie(){
             setYear(movie.release_date.split('-').shift());
         }
     }, [movie])
-console.log(movie);
 
     return(
             <div className='details'>
                 <div className='affiche'>
                     <Image src={`${baseURL}${movie.backdrop_path}`} size='small'/>
+                    <button
+                        onClick={() => toggleFavoris()}
+                    >
+                        { isFav ? "Supprimer des favoris" : "Ajouter aux favoris"}
+                    </button>
                 </div>
                 <div className='info'>
                     <h1>{movie.title}</h1>

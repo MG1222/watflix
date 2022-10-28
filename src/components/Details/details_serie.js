@@ -1,9 +1,10 @@
 import {useParams} from 'react-router-dom';
 import React, {useEffect, useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import {getserieByID} from "../store/series/serieIDSlice";
-import '../styles/details.scss';
-import Image from "./Image/Image";
+import {getserieByID} from "../../store/series/serieIDSlice";
+import '../../styles/details.scss';
+import Image from "../Image/Image";
+import {addSerie, removeSerie} from "../../store/favoris/favorisSlice";
 
 
 function Details_serie(){
@@ -14,7 +15,18 @@ function Details_serie(){
     const baseURL = 'https://image.tmdb.org/t/p/w500';
     const [year, setYear] = useState(undefined);
 
+    const favoris = useSelector((state) => state.favoris.series);
+    const [isFav, setFav] = useState(favoris.includes(serie));
 
+    const toggleFavoris = () => {
+        if(isFav) {
+            dispatch(removeSerie(serie));
+            setFav(false);
+        } else {
+            dispatch(addSerie(serie))
+            setFav(true);
+        }
+    }
 
 
     useEffect( () => {
@@ -32,6 +44,11 @@ function Details_serie(){
         <div className='details'>
             <div className='affiche'>
                 <Image src={`${baseURL}${serie.backdrop_path}`} size='small'/>
+                <button
+                    onClick={() => toggleFavoris()}
+                >
+                    { isFav ? "Supprimer des favoris" : "Ajouter aux favoris"}
+                </button>
             </div>
             <div className='info'>
                 <h1>{serie.name}</h1>

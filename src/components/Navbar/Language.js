@@ -25,7 +25,7 @@ export default function Language() {
                         <div className="language-dropdown-content">
                             {
                                 Object.entries(flags).map((flag, key) => 
-                                    flag[0] !== language ? <Image src={flag[1]} key={`flag${key}`} onClick={(e) => changeLanguage(flag[0])} size="xs" /> : null
+                                    flag[0] !== language ? <Image src={flag[1]} key={`flag${key}`} onClick={() => changeLanguage(flag[0])} size="xs" /> : null
                                 )
                             }
                         </div>

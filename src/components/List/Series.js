@@ -1,32 +1,32 @@
 import { useState } from 'react';
-import Image from '../Image/Image';
 
 import {Link} from 'react-router-dom';
 
 export default function Series(props) {
 
-    const { title, overview, image, id} = props;
+    const { name, overview, backdrop_path, id} = props.serie;
     const [showOverview, setShowOverview] = useState(false);
+
 
     return (
         <Link to={`/details/tv/${id}`} >
             <div className="movie"
-                 onMouseEnter={(event) => setShowOverview(true)}
-                 onMouseLeave={(event) => setShowOverview(false)}
+                 onMouseEnter={() => setShowOverview(true)}
+                 onMouseLeave={() => setShowOverview(false)}
             >
-                <img src={`https://image.tmdb.org/t/p/w780/${image}`} className="movie-img" alt="img movie"></img>
+                <img src={`https://image.tmdb.org/t/p/w780/${backdrop_path}`} className="movie-img" alt="img movie"></img>
                 {
                     showOverview ?
 
-                        <div className='movie-description-short'>
-                            <h3>{title}</h3>
-                            <p>{overview}</p>
+                    <div className='movie-description-short'>
+                        <h3>{name}</h3>
+                        <p>{overview}</p>
 
-                        </div>
-                        :
-                        null
-                }
-            </div>
+                    </div>
+                    :
+                    null
+            }
+        </div>
         </Link>
     )
 }

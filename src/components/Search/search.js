@@ -1,16 +1,14 @@
-import {Link} from 'react-router-dom';
 import React, {useEffect, useState} from "react";
-import Movie from "./List/Movie";
-import movieApi from "../apiConf/movieApi";
-import {API_KEY} from "../apiConf/movieApiKey";
-import Series from './List/Series';
-import '../styles/search.scss';
+import Movie from "../List/Movie";
+import movieApi from "../../apiConf/movieApi";
+import {API_KEY} from "../../apiConf/movieApiKey";
+import Series from '../List/Series';
+import '../../styles/search.scss';
 
 function Search(){
     const [inputValue, setInputValue] = useState('');
     const [loaded, setLoaded] = useState(false);
     const [resultats, setResultats] = useState([]);
-    const baseURL = 'https://image.tmdb.org/t/p/w500';
 
 
     useEffect(() => {
@@ -19,8 +17,7 @@ function Search(){
         };
         if (inputValue !== '') {
             searchMovies()
-                .then((response)=>setResultats(response.data.results))
-                .catch((err)=>console.log(err));
+                .then((response)=>setResultats(response.data.results));
 
             setLoaded(true);
         }
@@ -33,7 +30,7 @@ function Search(){
         <div className='page'>
             <div className='container'>
                 <input
-                    className='search__input'
+                    className='input'
                     type='text' placeholder='Rechercher un titre de film ou série'
                     onChange={e => setInputValue(encodeURIComponent(e.target.value))}
                 />
@@ -49,10 +46,7 @@ function Search(){
                     if (e.media_type==='tv') {
                         return  <Series
                                 key={i}
-                                title={e.name}
-                                overview={e.overview}
-                                image={`${baseURL}${e.poster_path}`}
-                                id={e.id}
+                                serie={e}
                             />
                     }
                 })}

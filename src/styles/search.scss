@@ -3,25 +3,18 @@
 .page {
   padding-top: 100px;
 }
-.search {
-  &__container {
-    padding-top: 64px;
-  }
-
-  &__input {
-    width: 92%;
+.input {
+    width: 95%;
     padding: 12px 24px;
     background-color: transparent;
-    transition: transform 250ms ease-in-out;
-    font-size: 14px;
+    font-size: 18px;
     line-height: 18px;
 
-    color: #575756;
-    background-color: transparent;
+    color: #818180;
     background-size: 18px 18px;
     background-position: 95% center;
-    border-radius: 50px;
-    border: 1px solid #575756;
+    border-radius: 25px;
+    border: 1px solid #818180;
     transition: all 250ms ease-in-out;
     backface-visibility: hidden;
     transform-style: preserve-3d;
@@ -42,4 +35,3 @@
       background-position: 100% center;
     }
   }
-}

@@ -1,11 +1,9 @@
-import { useState } from "react";
 import PlaceholderSmall from './placeholder-small.png';
 import PlaceholderLarge from './placeholder-large.png';
 import PlaceholderXs from './placeholder-xs.png';
 
 export default function Image(props) {
     const { src, size} = props;
-    const [error, setError] = useState(false);
     let backgroundImage = PlaceholderSmall;
 
     switch(size) {

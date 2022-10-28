@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAsyncMovies} from "../../store/movies/movieSlice";
 import ListRow from '../List/ListRow';
@@ -8,10 +7,9 @@ import {fetchAsyncSeries} from "../../store/series/serieSlice";
 
 
 const Home = () => {
-    const navigate = useNavigate();
     const dispatch = useDispatch();
 
-    const { movies }= useSelector((state) => state);
+    const { movies, series }= useSelector((state) => state);
 
 
     useEffect(() => {
@@ -20,17 +18,6 @@ const Home = () => {
 
     },[]);
 
-    useEffect(() => {
-        console.log(movies);
-    }, [movies]);
-
-
-    const { series }= useSelector((state) => state);
-
-
-    useEffect(() => {
-        //console.log(series);
-    }, [series]);
 
 
     return (

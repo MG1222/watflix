@@ -12,9 +12,9 @@ import serieIDReducer from "./series/serieIDSlice";
     reducer: {
         movies: moviesReducer,
         series: seriesReducer,
-        serieID: serieIDReducer,
         movieID: movieIDReducer,
-        favoris: favorisReducer
+        favoris: favorisReducer,
+        serieID: serieIDReducer
     },
 });
 export default store;
